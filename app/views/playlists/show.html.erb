@@ -1,0 +1,28 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @playlist.name %>
+</p>
+<%= link_to 'Edit', edit_playlist_path(@playlist) %>
+\|
+<%= link_to 'Back', playlists_path %>
+
+<section class="">
+  <div class="row">
+
+    <% @songs.each do |song| %>
+      <div id="song_<%= song.id %>" class="col-sm-4 mb-5 d-flex align-items justify-content-center">
+        <div class="card" style="">
+          <div class="card-body ">
+            <h5 class="card-title"><%= song.name %></h5>
+            <p class="card-text"><%= song.album %></p>
+            <%= link_to 'delete', removeSong_url(:id => @playlist.id, :song_id => song.id), method: :post, :remote => true, calss: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</section>

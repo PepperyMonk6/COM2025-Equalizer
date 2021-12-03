@@ -1,13 +1,23 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: %i[ show edit update destroy ]
+  before_action :set_playlist, only: %i[ show edit update destroy removeSong ]
+  before_action :set_song, only: [ :removeSong ]
 
   # GET /playlists or /playlists.json
   def index
     @playlists = Playlist.all
   end
 
+  def removeSong
+    SongPlaylist.where(playlist_id: @playlist.id, song_id: @song.id).destroy_all
+    respond_to do |format|
+      format.html {redirect_to @playlist}
+    end
+  end
+
   # GET /playlists/1 or /playlists/1.json
   def show
+    songIds = SongPlaylist.where(playlist_id: @playlist.id).pluck(:song_id)
+    @songs = Song.where(id: songIds).all
   end
 
   # GET /playlists/new
@@ -60,6 +70,10 @@ class PlaylistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
       @playlist = Playlist.find(params[:id])
+    end
+
+    def set_song
+      @song = Song.find(params[:song_id])
     end
 
     # Only allow a list of trusted parameters through.

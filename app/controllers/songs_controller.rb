@@ -1,8 +1,24 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: %i[ show edit update destroy ]
+  before_action :set_song, only: %i[ show edit update destroy addSong]
+  before_action :set_playlist, only: %i[ addSong ]
 
+
+  def addSong
+    song_playlist = SongPlaylist.create(song_id: @song.id, playlist_id: @playlist.id)
+    if song_playlist.save
+        flash[:notice] = 'song saved'
+    else 
+      flash[:alert] = song_playlist.errors
+    end
+
+    respond_to do |format|
+        format.html { redirect_to songs_url}
+    end
+  end
+  
   # GET /songs or /songs.json
   def index
+    @playlists = Playlist.all
     @songs = Song.all
   end
 
@@ -60,10 +76,15 @@ class SongsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
+      
+    end
+
+    def set_playlist
+      @playlist = Playlist.find(params[:playlist_id])
     end
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:name, :artist, :album)
+      params.require(:song).permit(:name, :artist, :album, :song_id, :playlist_id)
     end
 end
