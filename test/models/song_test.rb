@@ -16,6 +16,7 @@ class SongTest < ActiveSupport::TestCase
 
     my_song.name = 'Valid Name for my_song'
     my_song.artist = 'This is my artist'
+    my_song.album = 'This is my first album'
 
     my_song.save
     assert my_song.valid?
@@ -26,6 +27,7 @@ class SongTest < ActiveSupport::TestCase
     
     song1.name = 'My first name'
     song1.artist = 'This is my first artist'
+    song1.album = 'This is my first album'
 
     song1.save
     assert song1.valid?
@@ -34,6 +36,7 @@ class SongTest < ActiveSupport::TestCase
     
     song2.name = 'My first name'
     song2.artist = 'This is my first artist'
+    song2.album = 'This is my first album'
 
     song2.save
     refute song2.valid?

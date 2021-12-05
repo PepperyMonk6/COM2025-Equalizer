@@ -1,7 +1,7 @@
 <h1><%= t('contact.title')%></h1>
   <p><%= t('contact.contact_us')%></p>
 
-  <%= form_with url: request_contact_path, method: :post do |form| %>
+  <%= form_with url: request_contact_path, method: :post, :html => {:id => "contact_form"} do |form| %>
     <%= label_tag :name, t('.name') %>
     <%= text_field_tag :name, '', title: t('.enter_name'), size: 50 %>
     <%= label_tag :email, t('.email') %>
@@ -12,3 +12,36 @@
     <%= text_field_tag :message, '', title: t('.enter_message'), size: 100 %>
     <%= submit_tag t('contact.submit') %>
     <% end %>
+
+    <script>
+
+    const validateContactForm = function(){
+        $('#contact_form').validate({
+            rules: {
+                'name': {required: true},
+                'email': {
+                    required: true,
+                    email: true,
+                },
+                'telephone' : { required: true,},
+                'message': { required: true,}
+            },
+            messages: {
+                'name': {required: "please enter your name" ,},
+                'email': {
+                    required: "please enter your email" ,
+                    email: "please enter a valid email",
+                },
+                'telephone' : {required: "please enter your telephone number" ,},
+                'message': {required: "please enter your message" ,}
+            }
+        })
+    }
+
+    $(document).ready(function(){
+        if(document.getElementById('contact_form')){
+            validateContactForm();
+        }
+    })
+
+</script>

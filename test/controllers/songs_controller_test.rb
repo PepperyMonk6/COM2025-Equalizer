@@ -2,12 +2,23 @@ require 'test_helper'
 
 class SongsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @playlist = playlists(:three)
     @song = songs(:one)
+  end
+
+  test "should add song to Playlist" do
+    assert_difference('SongPlaylist.count') do
+      post addSongToPlaylist_url(@playlist.id, @song.id)
+    end
+
+    assert_redirected_to songs_url
   end
 
   test "should get index" do
     get songs_url
     assert_response :success
+
+    assert_select 'h1', 'Listing songs'
   end
 
   test "should get new" do
@@ -34,7 +45,7 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update song" do
-    patch song_url(@song), params: { song: { album: @song.album, artist: @song.artist, name: @song.name } }
+    patch song_url(@song), params: { song: { album: @song.album, artist: @song.artist, name: @song.name + '3' } }
     assert_redirected_to song_url(@song)
   end
 

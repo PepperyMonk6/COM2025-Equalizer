@@ -18,7 +18,7 @@
           <div class="card-body ">
             <h5 class="card-title"><%= song.name %></h5>
             <p class="card-text"><%= song.album %></p>
-            <%= link_to 'delete', removeSong_url(:id => @playlist.id, :song_id => song.id), method: :post, :remote => true, calss: "btn btn-primary" %>
+            <%= link_to 'delete', removeSong_url(:id => @playlist.id, :song_id => song.id), method: :delete, :remote => true, calss: "btn btn-primary remove-song-btn" %>
           </div>
         </div>
       </div>

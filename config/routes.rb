@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :playlists
   resources :songs
 
-  post '/removeSong/:id/:song_id', to: 'playlists#removeSong', as: 'removeSong'
+  delete '/removeSong/:id/:song_id', to: 'playlists#removeSong', as: 'removeSong'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
