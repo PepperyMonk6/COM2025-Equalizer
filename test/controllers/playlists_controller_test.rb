@@ -25,7 +25,7 @@ class PlaylistsControllerTest < ActionDispatch::IntegrationTest
     get playlists_url
     assert_response :success
 
-    assert_select 'h1', 'Listing playlists'
+    assert_select 'h1', 'Your playlists'
   end
 
   test "should get new" do

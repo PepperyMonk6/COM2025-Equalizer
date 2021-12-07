@@ -18,7 +18,7 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
     get songs_url
     assert_response :success
 
-    assert_select 'h1', 'Listing songs'
+    assert_select 'h1', 'Your songs'
   end
 
   test "should get new" do
