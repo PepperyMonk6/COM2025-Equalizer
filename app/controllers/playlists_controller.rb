@@ -7,6 +7,7 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
   end
 
+  #this method removes song from the playlist
   def removeSong
     SongPlaylist.where(playlist_id: @playlist.id, song_id: @song.id).destroy_all
     respond_to do |format|

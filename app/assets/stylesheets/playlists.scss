@@ -6,7 +6,13 @@
 .card{
     width: 80% !important;
     padding: 10%;
-    margin: 0 23%;
+    margin: 0 23%;  
+    
+    background-image: url("/images/neon10.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 20px;
 
     .card-body{
         display: flex;
@@ -14,4 +20,46 @@
         justify-content: center;
         flex-direction: column;
     }
+}
+
+.playlists_heading {
+    color: white !important;
+    font-size: 40px !important;
+    font-family: gotham !important;
+}
+
+.table_playlists {
+    margin-top: 40px;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.add_playlist_link {
+    font-size: 20px !important;
+}
+
+.playlist_info_message {
+    color: white !important;
+    font-size: 30px !important;
+    font-family: gotham !important;
+}
+
+.song_object_info {
+    color: white !important;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 25px !important;
+    font-family: gotham !important;
+}
+
+.delete_button {
+    font-size: 20px !important;
+    font-family: gotham !important;
+    color: white !important;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.field_playlists_colors {
+    color: white !important;
+    font-size: 20px !important;
+    font-family: gotham !important;
 }

@@ -1,0 +1,14 @@
+<p class="song_info_message">
+  <b>Name:</b>
+  <%= @song.name %>
+</p>
+<p class="song_info_message">
+  <b>Artist:</b>
+  <%= @song.artist %>
+</p>
+<p class="song_info_message">
+  <b>Album:</b>
+  <%= @song.album %>
+</p>
+<%= link_to 'Edit', edit_song_path(@song), class: "add_song_link" %>
+<%= link_to 'Back', songs_path, class: "add_song_link" %>

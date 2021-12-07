@@ -21,3 +21,43 @@
 td, th {
     padding: 5px;
 }
+
+body {
+    background-image: url("/images/neon8.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.nav-link {
+    font-size: 20px !important;
+    color: white !important;
+    font-family: gotham !important;
+}
+
+// h1, .h1 {
+//         font-size: 50px;
+//         position: relative; 
+//         top: 50px;
+//     }
+
+// p {
+//     position: relative; 
+//     top: 125px;
+// }
+
+//  body {
+//  font-family: gotham;
+//  font-size: 20px;
+//   line-height: 1.428571429;
+//  color: #333333;
+// }
+
+// .navbar-brand {
+//     float: left;
+//     height: 50px;
+//     padding: 15px 15px;
+//     font-size: 20px;
+//     line-height: 20px;
+// }
+

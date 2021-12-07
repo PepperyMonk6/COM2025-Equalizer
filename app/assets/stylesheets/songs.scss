@@ -1,3 +1,41 @@
 // Place all the styles related to the Songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.songs_heading {
+    color: white !important;
+    font-size: 40px !important;
+}
+
+.table_songs {
+    margin-top: 40px;
+    color: white !important;
+    font-size: 20px !important;
+    font-family: gotham !important;
+}
+
+.songs_funtions {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.add_song_link {
+    font-size: 20px !important;
+}
+
+.song_info_message {
+    color: white !important;
+    font-size: 30px !important;
+    font-family: gotham !important;
+}
+
+.field_colors{
+    color: white !important;
+}
+
+.notice {
+    color: white !important;
+    font-size: 30px !important;
+    font-family: gotham !important;
+}

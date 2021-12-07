@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   def contact
   end
 
+  # this method sends an email if parameters are not null
   def request_contact
     name = params[:name]
     email = params[:email]

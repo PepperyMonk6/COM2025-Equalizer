@@ -1,10 +1,10 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<p class="alert text-center"><%= alert %></p>
 
 
 
-<h1>Listing songs</h1>
-<table>
+<h1 class="songs_heading">Your songs</h1>
+<div class="d-flex allign-content-center justify-content-center flex-column container">
+<table class="table_songs">
   <thead>
     <tr>
       <th>Name</th>
@@ -27,14 +27,14 @@
         <td>
           <%= song.album %>
         </td>
-        <td>
-          <%= link_to 'Show', song %>
+        <td class="songs_funtions">
+          <%= link_to 'Info', song %>
         </td>
-        <td>
+        <td class="songs_funtions">
           <%= link_to 'Edit', edit_song_path(song) %>
-        </td>
-        <td>
-          <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td class="songs_funtions">
+        <td class="songs_funtions">
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
         <td>
         <div class="dropdown">
@@ -53,5 +53,6 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <br/>
-<%= link_to 'New Song', new_song_path %>
+<%= link_to 'Add song', new_song_path, class: "add_song_link" %>

@@ -1,24 +1,21 @@
-<p id="notice">
-  <%= notice %>
-</p>
-<p>
+<p class="playlist_info_message">
   <b>Name:</b>
   <%= @playlist.name %>
 </p>
-<%= link_to 'Edit', edit_playlist_path(@playlist) %>
-\|
-<%= link_to 'Back', playlists_path %>
+<%= link_to 'Edit', edit_playlist_path(@playlist), class: "add_playlist_link" %>
+
+<%= link_to 'Back', playlists_path, class: "add_playlist_link" %>
 
 <section class="">
   <div class="row">
 
     <% @songs.each do |song| %>
-      <div id="song_<%= song.id %>" class="col-sm-4 mb-5 d-flex align-items justify-content-center">
-        <div class="card" style="">
+      <div id="song_<%= song.id %>" class="col-md-4 mb-5 d-flex align-items justify-content-center">
+        <div class="shadow card" style="">
           <div class="card-body ">
-            <h5 class="card-title"><%= song.name %></h5>
-            <p class="card-text"><%= song.album %></p>
-            <%= link_to 'delete', removeSong_url(:id => @playlist.id, :song_id => song.id), method: :delete, :remote => true, calss: "btn btn-primary remove-song-btn" %>
+            <h5 class="song_object_info"><%= song.name %></h5>
+            <p class="song_object_info"><%= song.album %></p>
+            <%= link_to 'Delete', removeSong_url(:id => @playlist.id, :song_id => song.id), method: :delete, :remote => true, class: "delete_button btn btn-primary remove-song-btn" %>
           </div>
         </div>
       </div>

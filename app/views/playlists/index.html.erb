@@ -1,0 +1,33 @@
+<h1 class="playlists_heading">Your playlists</h1>
+<div class="d-flex allign-content-center justify-content-center flex-column container">
+<table class="table_playlists">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td>
+          <%= playlist.name %>
+        </td>
+        <td>
+          <%= link_to 'Show', playlist %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_playlist_path(playlist) %>
+        </td>
+        <td>
+          <%= link_to 'Delete', playlist, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br/>
+<%= link_to 'Add Playlist', new_playlist_path, class: "add_playlist_link" %>

@@ -3,6 +3,7 @@ class SongsController < ApplicationController
   before_action :set_playlist, only: %i[ addSong ]
 
 
+  #this method will add a song to a playlist by creating song_playlist object
   def addSong
     song_playlist = SongPlaylist.create(song_id: @song.id, playlist_id: @playlist.id)
     if song_playlist.save

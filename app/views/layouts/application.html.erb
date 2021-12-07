@@ -15,10 +15,8 @@
   </head>
 
   <body>
-  <%= render('shared/header') %>
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>  
-  <% end %>  
+  <%= render('shared/header') %> 
+  <p class="notice text-center"><%= notice %></p>
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,5 @@
-<h1><%= t('contact.title')%></h1>
-  <p><%= t('contact.contact_us')%></p>
+<h1 class="contact_heading"><%= t('contact.title')%></h1>
+<p class="contact_paragraph"><%= t('contact.contact_us')%></p>
 
   <%= form_with url: request_contact_path, method: :post, :html => {:id => "contact_form"} do |form| %>
     <%= label_tag :name, t('.name') %>
@@ -15,7 +15,7 @@
 
     <script>
 
-    const validateContactForm = function(){
+    function validateContactForm() {
         $('#contact_form').validate({
             rules: {
                 'name': {required: true},
